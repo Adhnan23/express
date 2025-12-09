@@ -10,7 +10,9 @@ const errorHandler = (err, req, res, next) => {
   const errors = isProd ? null : err;
 
   res.status(status).send(respond(false, message, null, errors));
-  console.error(err);
+  if (process.env.NODE_ENV !== "production") {
+    console.error(err);
+  }
 };
 
 export default errorHandler;
