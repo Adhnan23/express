@@ -17,8 +17,6 @@ const todosServices = {
     const updatedTodo = await Todos.findByIdAndUpdate(id, todoData, {
       new: true,
     });
-
-    if (!updatedTodo) throw new HttpError("Todo not found", 404);
     return updatedTodo;
   },
 
